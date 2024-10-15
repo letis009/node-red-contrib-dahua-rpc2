@@ -72,21 +72,22 @@ THE SOFTWARE.
     <p>Dahua IPC tested. </p>
     <h1 id="installation">Installation</h1>
     <pre><code>$ cd ~/.node-red
-    $ npm install node-red-contrib-dahua-rpc2
+$ npm install node-red-contrib-dahua-rpc2
     </code></pre><h1 id="configure-node-red">Configure Node-RED</h1>
     <p>Drag the Dahua RPC node into your workspace and double click to configure:</p>
     <ul>
         <li>Enter IPC address in Host</li>
         <li>Enter username</li>
-        <li>Enter </li>
+        <li>Enter password</li>
+        <li>Select KeepAlive or not</li>
     </ul>
     <pre><code>{
-        payload: {
-            host: &quot;host&quot;,
-            user: &quot;username&quot;,
-            pass: &quot;password&quot;
-        }
+    payload: {
+        host: &quot;host&quot;,
+        user: &quot;username&quot;,
+        pass: &quot;password&quot;
     }
+}</code>
     <!-- END -->
 </script>
     
