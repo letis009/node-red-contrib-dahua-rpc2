@@ -1,41 +1,92 @@
+<!--
+The MIT License (MIT)
+
+Copyright (c) 2016 @biddster
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+
 <script type="text/javascript">
     RED.nodes.registerType('dahua-rpc', {
         category: 'function',
         color: '#a6bbcf',
+        defaults: {
+            host: { value: '', required: false },
+            user: { value: '', required: false },
+            pass: { value: '', required: false },
+            sendKeepAlive: { value: false }
+        },
         inputs: 1,
         outputs: 1,
         icon: 'file.png',
-        label: function() {
-            return this.name || "Dahua RPC";
-        },
-        defaults: {
-            name: { value: "" },
-            host: { value: "" },
-            user: { value: "" },
-            pass: { value: "" }
+        label: function () {
+            return this.name || 'Dahua RPC';
         },
         oneditprepare: function() {
-            // This will run when the edit dialog is opened
+            // If needed, you can include any specific code to prepare the edit screen here
         }
     });
 </script>
 
-<div class="form-row">
-    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
-    <input type="text" id="node-input-name" placeholder="Node name">
-</div>
+<script type="text/x-red" data-template-name="dahua-rpc">
+    <div class="form-row">
+        <label for="node-input-host"><i class="fa fa-server"></i> Host</label>
+        <input type="text" id="node-input-host" placeholder="192.168.0.108">
+    </div>
+    <div class="form-row">
+        <label for="node-input-user"><i class="fa fa-user"></i> Username</label>
+        <input type="text" id="node-input-user" placeholder="admin">
+    </div>
+    <div class="form-row">
+        <label for="node-input-pass"><i class="fa fa-lock"></i> Password</label>
+        <input type="password" id="node-input-pass" placeholder="Password">
+    </div>
 
-<div class="form-row">
-    <label for="node-input-host"><i class="fa fa-laptop"></i> Host</label>
-    <input type="text" id="node-input-host" placeholder="Dahua Device IP">
-</div>
+    <!-- New Checkbox Row for "Send KeepAlive" -->
+    <div class="form-row">
+        <label for="node-input-sendKeepAlive"><i class="fa fa-refresh"></i> Send KeepAlive</label>
+        <input type="checkbox" id="node-input-sendKeepAlive">
+    </div>
+</script>
 
-<div class="form-row">
-    <label for="node-input-user"><i class="fa fa-user"></i> Username</label>
-    <input type="text" id="node-input-user" placeholder="Username">
-</div>
-
-<div class="form-row">
-    <label for="node-input-pass"><i class="fa fa-lock"></i> Password</label>
-    <input type="password" id="node-input-pass" placeholder="Password">
-</div>
+<script type="text/x-red" data-help-name="dahua-rpc">
+    <!-- START -->
+    <h1 id="dahua-rpc">Dahua RPC2</h1>
+    <p>Node-Red node that takes provided credentials or payload and request session ID.</p>
+    <p>Dahua IPC tested. </p>
+    <h1 id="installation">Installation</h1>
+    <pre><code>$ cd ~/.node-red
+    $ npm install node-red-contrib-dahua-rpc2
+    </code></pre><h1 id="configure-node-red">Configure Node-RED</h1>
+    <p>Drag the Dahua RPC node into your workspace and double click to configure:</p>
+    <ul>
+        <li>Enter IPC address in Host</li>
+        <li>Enter username</li>
+        <li>Enter </li>
+    </ul>
+    <pre><code>{
+        payload: {
+            host: &quot;host&quot;,
+            user: &quot;username&quot;,
+            pass: &quot;password&quot;
+        }
+    }
+    <!-- END -->
+</script>
+    
