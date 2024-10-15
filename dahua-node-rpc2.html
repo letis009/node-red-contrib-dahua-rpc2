@@ -1,0 +1,41 @@
+<script type="text/javascript">
+    RED.nodes.registerType('dahua-rpc', {
+        category: 'function',
+        color: '#a6bbcf',
+        inputs: 1,
+        outputs: 1,
+        icon: 'file.png',
+        label: function() {
+            return this.name || "Dahua RPC";
+        },
+        defaults: {
+            name: { value: "" },
+            host: { value: "" },
+            user: { value: "" },
+            pass: { value: "" }
+        },
+        oneditprepare: function() {
+            // This will run when the edit dialog is opened
+        }
+    });
+</script>
+
+<div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Node name">
+</div>
+
+<div class="form-row">
+    <label for="node-input-host"><i class="fa fa-laptop"></i> Host</label>
+    <input type="text" id="node-input-host" placeholder="Dahua Device IP">
+</div>
+
+<div class="form-row">
+    <label for="node-input-user"><i class="fa fa-user"></i> Username</label>
+    <input type="text" id="node-input-user" placeholder="Username">
+</div>
+
+<div class="form-row">
+    <label for="node-input-pass"><i class="fa fa-lock"></i> Password</label>
+    <input type="password" id="node-input-pass" placeholder="Password">
+</div>
